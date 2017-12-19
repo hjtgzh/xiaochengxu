@@ -10,7 +10,7 @@
     <text class='agreement-text' bindtap='toUserAgreement'>《用户注册协议》</text>
   </view>
   <view class="btn-area">
-    <button formType="submit">登录1</button>
+    <button formType="submit">登录</button>
     <!-- <button formType="reset">重置</button> -->
   </view>
 </form>
