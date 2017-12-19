@@ -1,8 +1,5 @@
 Page({
   data: {
-    agreeStatus: true,
-    showTopTips: false,
-
     radioItems: [
       { name: 'cell standard', value: '0' },
       { name: 'cell standard', value: '1', checked: true }
@@ -23,19 +20,7 @@ Page({
 
     accounts: ["微信号", "QQ", "Email"],
     accountIndex: 0,
-
     isAgree: false
-  },
-  formSubmit: function (e) {
-    console.log('form发生了submit事件，携带数据为：', e.detail.value)
-  },
-  formReset: function () {
-    console.log('form发生了reset事件')
-  },
-  agreeHandle: () => {
-    this.setData({
-      agreeStatus: !this.data.agreeStatus
-    })
   },
   showTopTips: function () {
     var that = this;
@@ -47,37 +32,6 @@ Page({
         showTopTips: false
       });
     }, 3000);
-  },
-  radioChange: function (e) {
-    console.log('radio发生change事件，携带value值为：', e.detail.value);
-
-    var radioItems = this.data.radioItems;
-    for (var i = 0, len = radioItems.length; i < len; ++i) {
-      radioItems[i].checked = radioItems[i].value == e.detail.value;
-    }
-
-    this.setData({
-      radioItems: radioItems
-    });
-  },
-  checkboxChange: function (e) {
-    console.log('checkbox发生change事件，携带value值为：', e.detail.value);
-
-    var checkboxItems = this.data.checkboxItems, values = e.detail.value;
-    for (var i = 0, lenI = checkboxItems.length; i < lenI; ++i) {
-      checkboxItems[i].checked = false;
-
-      for (var j = 0, lenJ = values.length; j < lenJ; ++j) {
-        if (checkboxItems[i].value == values[j]) {
-          checkboxItems[i].checked = true;
-          break;
-        }
-      }
-    }
-
-    this.setData({
-      checkboxItems: checkboxItems
-    });
   },
   bindDateChange: function (e) {
     this.setData({
