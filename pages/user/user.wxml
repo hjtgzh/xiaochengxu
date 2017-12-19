@@ -1,0 +1,16 @@
+<form bindsubmit="formSubmit" bindreset="formReset">
+  <view class="input-wrap">
+    <input name="username" type="number" placeholder="请输入用户名" />
+  </view>
+  <view class="input-wrap">
+    <input name="password" type="number" placeholder="请输入密码" />
+  </view>
+  <view class="agreement-select">
+    <label class='checkbox'><checkbox checked="agreeStatus" bindtap='agreeHandle'/>已经阅读并同意</label>
+    <text class='agreement-text' bindtap='toUserAgreement'>《用户注册协议》</text>
+  </view>
+  <view class="btn-area">
+    <button formType="submit">登录</button>
+    <!-- <button formType="reset">重置</button> -->
+  </view>
+</form>

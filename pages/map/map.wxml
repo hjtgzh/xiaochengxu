@@ -1,0 +1,18 @@
+<view class="map">
+  <view class='input-wrap'>
+    <input class='map-input' placeholder='请输入目的地'/>
+    <button bindtap="handleSearch">搜索</button>
+  </view>
+  <map 
+    id="map" 
+    longitude="{{longitude}}"
+    latitude="{{latitude}}" 
+    scale="16" 
+    controls="{{controls}}" 
+    bindcontroltap="controltap" 
+    markers="{{markers}}" 
+    bindregionchange="regionchange" 
+    show-location 
+    style="width: 98%; height: 300px; margin-left: 1%;">
+  </map>
+</view>

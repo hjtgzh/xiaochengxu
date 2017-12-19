@@ -1,0 +1,29 @@
+.input-wrap, .agreement-select{
+  width: 80%;
+  margin: 0 auto;
+}
+.input-wrap{
+  border-bottom: 1rpx solid #ccc;
+  margin-top: 30rpx;
+}
+.btn-area{
+  display: flex;
+  margin-top: 100rpx;
+}
+.btn-area button{
+  width: 80%;
+  color: #fff;
+  background: #028bff;
+}
+.agreement-select{
+  font-size: 28rpx;
+  margin-top: 20rpx;
+}
+.agreement-text{
+  color: #028bff;
+}
+.checkbox::after{
+  width: 12px;
+  height: 12px;
+}
+

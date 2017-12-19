@@ -1,0 +1,25 @@
+<view>
+  <view wx:for="{{musicList}}" wx:key="{{index}}" class='music-wrap'>
+    <view class="{{item.name == '画' || item.checked ? 'checked-music music-item' : 'music-item'}}" bindtap="musicClick" data-item="{{item}}">
+      <view>{{item.name}}</view>----------
+      <view>{{item.author}}</view>
+    </view>
+  </view>
+  <view class='vedio-wrap'>
+    <audio 
+      poster="{{musicItem && musicItem.poster || musicList[0].poster}}" 
+      name="{{musicItem && musicItem.name || musicList[0].name}}" 
+      author="{{musicItem && musicItem.author || musicList[0].author}}" 
+      id="myAudio" 
+      controls 
+      loop
+    >
+    </audio> 
+    <view class='controlbt-wrap'>
+      <button type="primary" bindtap="audioPlay">播放</button>
+      <button type="primary" bindtap="audioPause">暂停</button>
+      <!-- <button type="primary" bindtap="audio14">设置当前播放时间为14秒</button> -->
+      <button type="primary" bindtap="audioStart">回到开头</button>
+    </view>
+  </view>
+</view>

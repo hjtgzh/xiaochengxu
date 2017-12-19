@@ -1,0 +1,34 @@
+/* pages/music/music.wxss */
+.controlbt-wrap{
+  display: flex;
+  justify-content: center;
+  margin-top: 30rpx;
+}
+.controlbt-wrap button{
+  width: 30%; 
+  font-size: 30rpx;
+}
+.vedio-wrap{
+  width: 100%;
+  font-size: 0;
+  position: fixed;
+  bottom: 0;
+  background: #f8f8f8;
+  padding-bottom: 20rpx;
+  text-align: center;
+}
+.music-wrap{
+  margin-bottom: 20rpx;
+}
+#myAudio{
+  width: 100%;
+}
+.music-item{
+  display: flex;
+  font-size: 36rpx;
+  border: 1rpx solid #f8f8f8;
+  padding: 20rpx;
+}
+.checked-music{
+  background: #f8f8f8;
+}

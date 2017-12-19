@@ -1,0 +1,47 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/map/map",
+    "pages/music/music",
+    "pages/user/user",
+    "pages/userAgreement/userAgreement"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "color": "#a9b7b7",
+    "selectedColor": "#f45606",
+    "borderStyle": "#f8f8f8",
+    "list": [
+      {
+        "selectedIconPath": "images/home-tian.png",
+        "iconPath": "images/home.png",
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "images/map-tian.png",
+        "iconPath": "images/map.png",
+        "pagePath": "pages/map/map",
+        "text": "地图"
+      },
+      {
+        "selectedIconPath": "images/music-tian.png",
+        "iconPath": "images/music.png",
+        "pagePath": "pages/music/music",
+        "text": "音乐"
+      },
+      {
+        "selectedIconPath": "images/user-tian.png",
+        "iconPath": "images/user.png",
+        "pagePath": "pages/user/user",
+        "text": "用户"
+      }
+    ]
+  }
+}
