@@ -7,8 +7,8 @@
       />
     </view>
     <view class='weui-select-wrap'>
-      <picker bindchange="bindCountryCodeChange" value="{{countryCodeIndex}}" range="{{countryCodes}}">
-        <view class="weui-select">{{countryCodes[countryCodeIndex]}}</view>
+      <picker bindchange="bindPhoneTypeChange" value="{{phoneTypeIndex}}" range="{{phoneTypeCodes}}">
+        <view class="weui-select">{{phoneTypeCodes[phoneTypeIndex]}}</view>
       </picker>
     </view>
   </view>
@@ -20,10 +20,10 @@
       />
     </view>
     <view class="weui-cell__bd">
-      <input class="weui-input" placeholder="请输入手机号" />
+      <input class="weui-input" bindinput='phoneNumberChange' placeholder="请输入手机号" />
     </view>
     <view class="weui-cell__ft">
-      <view class="weui-vcode-btn">获取验证码</view>
+      <view class="weui-vcode-btn" bindtap='getVerificationCode'>获取验证码</view>
     </view>
   </view>
   <view class="weui-cell weui-cell_input weui-cell_vcode item-wrap">
@@ -34,15 +34,15 @@
       />
     </view>
     <view class="weui-cell__bd">
-      <input class="weui-input" placeholder="请输入验证码" />
-    </view>
-    <view class="weui-cell__ft">
-      <image class="weui-vcode-img" src="../images/vcode.jpg" style="width: 108px"></image>
+      <input class="weui-input" bindinput='verificationCodeChange' placeholder="请输入验证码" />
     </view>
   </view>
   <view class="weui-cell weui-cell_input item-wrap">
-      <view class="weui-cell__hd">
-        <view class="weui-label">日期</view>
+      <view class="weui-label">
+        <image 
+          style="width: 25px; height: 25px;"
+          src="../../images/date.png" 
+        />
       </view>
       <view class="weui-cell__bd">
         <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
@@ -51,8 +51,11 @@
       </view>
   </view>
   <view class="weui-cell weui-cell_input item-wrap">
-    <view class="weui-cell__hd">
-      <view class="weui-label">时间</view>
+    <view class="weui-label">
+      <image 
+        style="width: 25px; height: 25px;"
+        src="../../images/time.png" 
+      />
     </view>
     <view class="weui-cell__bd">
       <picker mode="time" value="{{time}}" start="09:01" end="21:01" bindchange="bindTimeChange">
@@ -63,16 +66,16 @@
   <view class="weui-cells__tips">底部说明文字底部说明文字</view>
   <view class="weui-cells__title">表单报错</view>
 
-  <view class="weui-cell weui-cell_select item-wrap">
+  <view class="weui-cell weui-cell_select item-wrap special-weui-cell">
     <view class="weui-cell__bd">
       <picker bindchange="bindAccountChange" value="{{accountIndex}}" range="{{accounts}}">
           <view class="weui-select">{{accounts[accountIndex]}}</view>
       </picker>
     </view>
   </view>
-  <view class="weui-cell weui-cell_select item-wrap">
+  <view class="weui-cell weui-cell_select item-wrap special-weui-cell">
     <view class="weui-cell__hd weui-cell__hd_in-select-after">
-      <view class="weui-label">国家/地区</view>
+      <view class="weui-label special-label">国家/地区</view>
     </view>
     <view class="weui-cell__bd">
       <picker bindchange="bindCountryChange" value="{{countryIndex}}" range="{{countries}}">
@@ -92,7 +95,7 @@
     </label>
   </checkbox-group>
   <view class="weui-btn-area">
-    <button class="weui-btn" type="primary" bindtap="showTopTips">登录</button>
+    <button class="weui-btn" type="primary" bindtap="handleLoad">登录</button>
   </view>
 </view>
   <!-- <view class="btn-area">
