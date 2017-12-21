@@ -8,17 +8,33 @@ Page({
     userInfo: {},
     userPhoto: '',
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    imgUrls: [
+      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+      'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
+      'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
+    ],
+    autoplay: false,
+    interval: 5000,
+    duration: 1000
   },
   //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
+  bindViewTap: function(e) {
+    // wx.navigateTo({
+    //   url: '../logs/logs'
+    // })
+    // 图片预览
+    wx.previewImage({
+      urls: [e.currentTarget.dataset.url] // 需要预览的图片http链接列表
     })
+  },
+  setStorageSync: function (key, value) {
+    wx.setStorageSync(key, value)
   },
   onLoad: function () {
     if (app.globalData.userInfo) {
       // console.log(app.globalData.userInfo)
+      this.setStorageSync('userImgUrl', app.globalData.userInfo.avatarUrl)
       this.setData({
         userInfo: app.globalData.userInfo,
         motto: `Hello ${app.globalData.userInfo.nickName}`,
@@ -30,6 +46,7 @@ Page({
       // 所以此处加入 callback 以防止这种情况
       app.userInfoReadyCallback = res => {
         // console.log(res)
+        this.setStorageSync('userImgUrl', res.userInfo.avatarUrl)
         this.setData({
           userInfo: res.userInfo,
           motto: `Hello ${res.userInfo.nickName}`,
@@ -58,21 +75,32 @@ Page({
       hasUserInfo: true
     })
   },
-  clickMe: function(e) {
-    // this.setData({ motto: '逗比涵宝，这就是传说中的小程序，哈哈，，'})
-    const _this = this
-    // wx.getLocation({
-    //   type: 'wgs84',
-    //   success: function (res) {
-    //     const user = {
-    //       latitude: res.latitude,
-    //       longitude: res.longitude,
-    //       userPhoto: _this.data.userPhoto
-    //     }
-    //     wx.navigateTo({
-    //       url: '../map/map?user=' + JSON.stringify(user)
-    //     })
-    //   }
-    // })
+  chooseImg: function () {
+    wx.chooseImage({
+      count: 1, // 默认9
+      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+      success: function (res) {
+        console.log(res)
+        // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
+        var tempFilePaths = res.tempFilePaths
+        // 获取图片信息
+        wx.getImageInfo({
+          src: tempFilePaths[0],
+          success: function (res) {
+            console.log(res)
+            console.log(res.width)
+          }
+        })
+      },
+      fail: () => {
+        console.log('选择失败')
+      }
+    })
+  },
+  changeAutoplay: function (e) {
+    this.setData({
+      autoplay: !this.data.autoplay
+    })
   }
 })

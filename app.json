@@ -4,6 +4,7 @@
     "pages/logs/logs",
     "pages/map/map",
     "pages/music/music",
+    "pages/video/video",
     "pages/user/user",
     "pages/userAgreement/userAgreement"
   ],
@@ -35,6 +36,12 @@
         "iconPath": "images/music.png",
         "pagePath": "pages/music/music",
         "text": "音乐"
+      },
+      {
+        "selectedIconPath": "images/video-tian.png",
+        "iconPath": "images/video.png",
+        "pagePath": "pages/video/video",
+        "text": "视频"
       },
       {
         "selectedIconPath": "images/user-tian.png",

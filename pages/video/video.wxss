@@ -1,0 +1,19 @@
+/* pages/vedio/vedio.wxss */
+.video-item, .btn-area{
+  width: 96%;
+  margin: 0 auto;
+}
+.weui-input{
+  margin-top: 20rpx;
+  border: 1rpx solid #ccc;
+  border-radius: 10rpx;
+  padding: 0 20rpx;
+}
+.rate-btn-wrap{
+  margin-top: 20rpx;
+  display: flex;
+  justify-content: center;
+}
+.rate-btn{
+  font-size: 28rpx;
+}

@@ -1,0 +1,26 @@
+<!-- <view class="container">
+  <video class='video-item' src="{{src}}"></video>
+  <button class="weui-btn" type="primary" bindtap="bindButtonTap">获取视频</button>
+</view> -->
+<view class="container">
+  <video 
+    id="myVideo" 
+    class='video-item' 
+    src="{{src}}" 
+    playbackRate="0.5"
+    enable-danmu 
+    danmu-btn 
+    controls 
+    page-gesture
+  />
+  <view class="btn-area">
+    <view class='rate-btn-wrap'>
+      <button class="rate-btn" type="primary" data-rate="0.5" bindtap="handleRate">0.5倍加速</button>
+      <button class="rate-btn" type="primary" data-rate="1.0" bindtap="handleRate">正常速度</button>
+      <button class="rate-btn" type="primary" data-rate="1.5" bindtap="handleRate">1.5倍加速</button>
+    </view>
+    <input class="weui-input" placeholder="请输入弹幕" bindblur="bindInputBlur"/>
+    <button class="weui-btn" type="primary" bindtap="bindSendDanmu">发送弹幕</button>
+    <button class="weui-btn" type="primary" bindtap="bindButtonTap">获取视频</button>
+  </view>
+</view>

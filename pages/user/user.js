@@ -46,7 +46,6 @@ Page({
       },
       method: 'POST',
       success: function (res) {
-        console.log(res)
         console.log(res.data)
       }
     })
