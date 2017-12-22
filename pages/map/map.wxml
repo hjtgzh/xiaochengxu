@@ -13,6 +13,7 @@
     markers="{{markers}}" 
     bindregionchange="regionchange" 
     show-location 
-    style="width: 98%; height: 300px; margin-left: 1%;">
+    style="width: 98%; height: 300px; margin-left: 1%;"
+  >
   </map>
 </view>

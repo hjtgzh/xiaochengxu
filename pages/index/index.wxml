@@ -13,10 +13,6 @@
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
-  <!-- <button class="weui-btn" type="primary" bindtap="chooseImg">请选择照片</button> -->
   <swiper 
     indicator-dots
     autoplay="{{autoplay}}" 
@@ -25,11 +21,12 @@
   >
     <block wx:for="{{imgUrls}}" wx:key="index">
       <swiper-item>
-        <image src="{{item}}" class="slide-image" height="150"/>
+        <image src="{{item}}" class="slide-image"/>
       </swiper-item>
     </block>
   </swiper>
   <view class='control-bt-wrap'>
-    <button class="weui-btn" type="primary" bindtap="changeAutoplay"> autoplay </button>
+     <button class="weui-btn" type="primary" bindtap="chooseImg">请选择照片</button>  
+    <button class="weui-btn" type="primary" bindtap="changeAutoplay">自动轮播</button>
   </view>
 </view>

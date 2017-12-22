@@ -4,7 +4,6 @@ const app = getApp()
 
 Page({
   data: {
-    motto: 'Hello',
     userInfo: {},
     userPhoto: '',
     hasUserInfo: false,
@@ -15,8 +14,6 @@ Page({
       'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
     ],
     autoplay: false,
-    interval: 5000,
-    duration: 1000
   },
   //事件处理函数
   bindViewTap: function(e) {
@@ -37,7 +34,6 @@ Page({
       this.setStorageSync('userImgUrl', app.globalData.userInfo.avatarUrl)
       this.setData({
         userInfo: app.globalData.userInfo,
-        motto: `Hello ${app.globalData.userInfo.nickName}`,
         userPhoto: app.globalData.userInfo.avatarUrl,
         hasUserInfo: true
       })
@@ -49,7 +45,6 @@ Page({
         this.setStorageSync('userImgUrl', res.userInfo.avatarUrl)
         this.setData({
           userInfo: res.userInfo,
-          motto: `Hello ${res.userInfo.nickName}`,
           userPhoto: res.userInfo.avatarUrl,
           hasUserInfo: true
         })
@@ -76,12 +71,16 @@ Page({
     })
   },
   chooseImg: function () {
+    const that = this
     wx.chooseImage({
       count: 1, // 默认9
       sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
       sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
       success: function (res) {
         console.log(res)
+        that.setData({
+          imgUrls: that.data.imgUrls.concat(res.tempFilePaths)
+        })
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
         var tempFilePaths = res.tempFilePaths
         // 获取图片信息
